@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinaryNode {
     public int value;
     public BinaryNode left;
@@ -72,5 +75,23 @@ public class BinaryNode {
             depthFirstPostOrder(current.right);
         }
         System.out.printf("Found %d.0 \n", current.value);
+    }
+
+    public void bredthFirstSearch(BinaryNode current) {
+        LinkedList<BinaryNode> queue = new LinkedList<BinaryNode>();
+        queue.add(current);
+
+        while(!queue.isEmpty()){
+            BinaryNode first = queue.removeFirst();
+            System.out.printf("Current value = %d.0", first.value);
+
+            if(current.left != null) {
+                queue.add(current.left);
+            }
+
+            if(current.right != null) {
+                queue.add(current.right);
+            }
+        }
     }
 }

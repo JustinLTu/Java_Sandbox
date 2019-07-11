@@ -50,4 +50,27 @@ public class BinaryNode {
             depthFirstPreOrder(current.right);
         }
     }
+
+    public void depthFirstInOrder(BinaryNode current) {
+        if(current.left != null) {
+            depthFirstInOrder(current.left);
+        }
+
+        System.out.printf("Found %d.0 \n", current.value);
+
+        if(current.right != null) {
+            depthFirstInOrder(current.right);
+        }
+    }
+
+    public void depthFirstPostOrder(BinaryNode current) {
+        if(current.left != null) {
+            depthFirstPostOrder(current.left);
+        }
+
+        if(current.right != null) {
+            depthFirstPostOrder(current.right);
+        }
+        System.out.printf("Found %d.0 \n", current.value);
+    }
 }

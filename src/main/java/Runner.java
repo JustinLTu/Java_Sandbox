@@ -1,28 +1,75 @@
-import java.sql.SQLOutput;
-
 public class Runner {
 
     public static void main(String args[]) {
-        testNaryNodes();
+        testBinarySearchNodesRemove();
+    }
+
+    private static void testBinarySearchNodes() {
+        BinarySearchNode root = new BinarySearchNode(10);
+        root.insertValue( root, 4);
+        root.insertValue( root, 6);
+        root.insertValue( root, 25);
+        root.insertValue( root, 12);
+        root.insertValue( root, 19);
+        root.insertValue( root, 1);
+        System.out.println("Finished");
+
+        System.out.println("Found 12?: " + (root.findValue(root, 12) != null));
+        System.out.println("Found 5?: " + (root.findValue(root, 5) != null));
+    }
+
+    private static void testBinarySearchNodesRemove() {
+        BinarySearchNode root = new BinarySearchNode(10);
+        root.insertValue( root, 4);
+        root.insertValue( root, 6);
+        root.insertValue( root, 25);
+        root.insertValue( root, 12);
+        root.insertValue( root, 19);
+        root.insertValue( root, 1);
+        root.insertValue(root, 11);
+        root.insertValue(root, 30);
+
+        System.out.println(root.deleteNode(1));
+        System.out.println(root.deleteNode(4));
+        System.out.println(root.deleteNode(10));
     }
 
     private static void testNaryNodes() {
+        /*
+         * Expected Tree
+         *
+         *        1
+         *   2    3    4
+         *  6   7 8 9   10
+         *
+         */
         NaryNode root = new NaryNode(1);
         root.add(2, 3, 4);
         root.children.get(0).add(6);
         root.children.get(1).add(7, 8, 9);
         root.children.get(2).add(10);
 
-        System.out.println("Preorder Run");
+        System.out.println("\nPreorder Run");
         root.depthFirstPreOrder(root);
 
-        System.out.println("Postorder Run");
+        System.out.println("\nPostorder Run");
         root.depthFirstPostOrder(root);
+
+        System.out.println("\nBreadth First Search");
+        root.breadthFirstSearch();
 
         System.out.println("Done");
     }
 
     private static void testBinaryNodes() {
+        /*
+         * Expected Tree
+         *
+         *       1
+         *   2       5
+         * 3   4   6   7
+         *
+         */
         BinaryNode root = new BinaryNode(1);
 
         root.insertLeft(3);
@@ -42,5 +89,8 @@ public class Runner {
 
         System.out.println("\nPost Order Root: \n");
         root.depthFirstPostOrder(root);
+
+        System.out.println("\nBreadth First Search Root: \n");
+        root.breadthFirstSearch();
     }
 }

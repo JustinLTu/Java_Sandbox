@@ -77,20 +77,20 @@ public class BinaryNode {
         System.out.printf("Found %d.0 \n", current.value);
     }
 
-    public void bredthFirstSearch(BinaryNode current) {
-        LinkedList<BinaryNode> queue = new LinkedList<BinaryNode>();
-        queue.add(current);
+    public void breadthFirstSearch() {
+        LinkedList<BinaryNode> queue = new LinkedList();
+        queue.add(this);
 
         while(!queue.isEmpty()){
             BinaryNode first = queue.removeFirst();
-            System.out.printf("Current value = %d.0", first.value);
+            System.out.printf("Current value = %d.0\n", first.value);
 
-            if(current.left != null) {
-                queue.add(current.left);
+            if(first.left != null) {
+                queue.add(first.left);
             }
 
-            if(current.right != null) {
-                queue.add(current.right);
+            if(first.right != null) {
+                queue.add(first.right);
             }
         }
     }

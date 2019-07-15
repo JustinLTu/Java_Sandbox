@@ -46,4 +46,18 @@ public class NaryNode {
 
         System.out.printf("Found %d.0 \n", current.value);
     }
+
+    public void breadthFirstSearch() {
+        LinkedList<NaryNode> queue = new LinkedList();
+        queue.add(this);
+
+        while(!queue.isEmpty()) {
+            NaryNode first = queue.removeFirst();
+            System.out.printf("Current value = %d.0\n", first.value);
+
+            for(NaryNode child: first.children) {
+                queue.add(child);
+            }
+        }
+    }
 }

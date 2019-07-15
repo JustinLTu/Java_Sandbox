@@ -1,3 +1,5 @@
+package TreeNodes;
+
 import java.util.LinkedList;
 
 public class NaryNode {

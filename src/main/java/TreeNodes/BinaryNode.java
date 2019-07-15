@@ -1,5 +1,6 @@
+package TreeNodes;
+
 import java.util.LinkedList;
-import java.util.Queue;
 
 public class BinaryNode {
     public int value;

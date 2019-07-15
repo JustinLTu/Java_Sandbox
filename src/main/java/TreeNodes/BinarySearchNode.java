@@ -1,3 +1,5 @@
+package TreeNodes;
+
 public class BinarySearchNode {
     public int value;
     public BinarySearchNode left;
